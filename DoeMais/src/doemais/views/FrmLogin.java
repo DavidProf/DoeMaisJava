@@ -5,7 +5,10 @@
  */
 package doemais.views;
 
+import doemais.BD.Acessa;
 import java.awt.Point;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -166,9 +169,16 @@ public class FrmLogin extends javax.swing.JFrame {
         passwordField_senha.setBounds(315, 230, 245, 35);
 
         button_entrar.setBackground(new java.awt.Color(255, 87, 87));
+        button_entrar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         button_entrar.setText("Entrar");
         button_entrar.setBorder(null);
+        button_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_entrar.setFocusPainted(false);
+        button_entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_entrarActionPerformed(evt);
+            }
+        });
         panel_tudo.add(button_entrar);
         button_entrar.setBounds(390, 270, 100, 35);
 
@@ -185,8 +195,34 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void panel_titleBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_titleBarMouseDragged
         Point p = this.getLocation();
-        this.setLocation(p.x + evt.getX() - point.x, p.y + evt.getY() -  point.y);
+        this.setLocation(p.x + evt.getX() - point.x, p.y + evt.getY() - point.y);
     }//GEN-LAST:event_panel_titleBarMouseDragged
+
+    private void button_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_entrarActionPerformed
+        // LOGIN
+        bd.entBanco();
+        String comando = "SELECT COUNT(*), Adm FROM tblFuncionarioDoeMais "
+                + "WHERE REPLACE(REPLACE(CPF, '.', ''), '-', '') LIKE '" + textField_user.getText().replace(".", "").replace("-", "")
+                + "' AND Senha LIKE '" + passwordField_senha.getText() + "' "
+                + "GROUP BY Adm";
+        try {
+            bd.RS = bd.stmt.executeQuery(comando);
+            while (bd.RS.next()) {
+                if ("1".equals(bd.RS.getString(1))) {
+                    if ("0".equals(bd.RS.getString(2))) {
+                        new doemais.DoeMais().MENU(false);
+                    } else {
+                        new doemais.DoeMais().MENU(true);
+                    }
+                    this.show(false);
+                    return;
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
+        } catch (SQLException ssql) {
+            JOptionPane.showMessageDialog(null, "Erro ao se conectarao banco.");
+        }
+    }//GEN-LAST:event_button_entrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,4 +275,6 @@ public class FrmLogin extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private Point point = new Point();
+    //
+    Acessa bd = new Acessa();
 }

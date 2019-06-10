@@ -5,6 +5,9 @@
  */
 package doemais;
 
+import doemais.views.FrmLogin;
+import doemais.views.FrmMenu;
+
 /**
  *
  * @author Lab
@@ -16,6 +19,12 @@ public class DoeMais {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        new FrmLogin().setVisible(true);
     }
     
+    public void MENU(boolean a){
+        FrmMenu menu = new FrmMenu();
+        menu.button_AdicionarFuncionario.setEnabled(a);
+        menu.setVisible(true);
+    }
 }
