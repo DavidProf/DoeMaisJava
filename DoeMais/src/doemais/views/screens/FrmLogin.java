@@ -1,4 +1,4 @@
-package doemais.views;
+package doemais.views.screens;
 
 import doemais.BD.Acessa;
 import java.awt.Point;
@@ -167,7 +167,7 @@ public class FrmLogin extends javax.swing.JFrame {
         button_entrar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         button_entrar.setText("Entrar");
         button_entrar.setBorder(null);
-        button_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_entrar.setFocusPainted(false);
         button_entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

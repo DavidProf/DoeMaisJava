@@ -5,8 +5,8 @@
  */
 package doemais;
 
-import doemais.views.FrmLogin;
-import doemais.views.FrmMenu;
+import doemais.views.screens.FrmLogin;
+import doemais.views.screens.FrmMenu;
 
 /**
  *
