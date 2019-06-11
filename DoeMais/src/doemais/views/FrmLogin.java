@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package doemais.views;
 
 import doemais.BD.Acessa;
@@ -12,7 +7,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Lab
+ * @author DoeMais
  */
 public class FrmLogin extends javax.swing.JFrame {
 
@@ -200,6 +195,13 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void button_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_entrarActionPerformed
         // LOGIN
+
+        if (textField_user.getText() == null || textField_user.getText().trim().equals("")
+                || passwordField_senha.getText() == null || passwordField_senha.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha usuário e senha");
+            return;
+        }
+
         bd.entBanco();
         String comando = "SELECT COUNT(*), Adm FROM tblFuncionarioDoeMais "
                 + "WHERE REPLACE(REPLACE(CPF, '.', ''), '-', '') LIKE '" + textField_user.getText().replace(".", "").replace("-", "")
@@ -221,6 +223,8 @@ public class FrmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
         } catch (SQLException ssql) {
             JOptionPane.showMessageDialog(null, "Erro ao se conectarao banco.");
+        }catch (NullPointerException ne){
+            
         }
     }//GEN-LAST:event_button_entrarActionPerformed
 
