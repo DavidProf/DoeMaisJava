@@ -678,7 +678,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="button_salvar">
+        <Component class="javax.swing.JButton" name="button_adicionar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="1a" red="b" type="rgb"/>

@@ -48,7 +48,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_telefoneA = new javax.swing.JTextField();
         textField_nome1 = new javax.swing.JTextField();
         checkBox_administrador = new javax.swing.JCheckBox();
-        button_salvar = new javax.swing.JButton();
+        button_adicionar = new javax.swing.JButton();
         button_salvar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,7 +113,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         panel_titleBar.setBounds(0, 0, 630, 40);
 
         panel_dadosbasicos.setBackground(new java.awt.Color(255, 255, 255));
-        panel_dadosbasicos.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Dados Básicos", 2, 0, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        panel_dadosbasicos.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Dados Básicos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
         panel_dadosbasicos.setLayout(null);
 
         textField_cpf.setBackground(new java.awt.Color(219, 243, 255));
@@ -147,7 +147,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         panel_dadosbasicos.setBounds(10, 50, 435, 55);
 
         panel_dataNascimento.setBackground(new java.awt.Color(255, 255, 255));
-        panel_dataNascimento.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Nascimento", 2, 0, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        panel_dataNascimento.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Nascimento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
         panel_dataNascimento.setLayout(null);
 
         textField_dataDia.setBackground(new java.awt.Color(219, 243, 255));
@@ -181,7 +181,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         panel_dataNascimento.setBounds(455, 50, 170, 55);
 
         panel_endereco.setBackground(new java.awt.Color(255, 255, 255));
-        panel_endereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Endereço", 2, 0, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        panel_endereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Endereço", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
         panel_endereco.setLayout(null);
 
         textField_cep.setBackground(new java.awt.Color(219, 243, 255));
@@ -251,7 +251,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         panel_endereco.setBounds(10, 110, 615, 90);
 
         panel_telefones.setBackground(new java.awt.Color(255, 255, 255));
-        panel_telefones.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Telefones", 2, 0, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        panel_telefones.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Telefones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
         panel_telefones.setLayout(null);
 
         textField_telefoneA.setBackground(new java.awt.Color(219, 243, 255));
@@ -281,16 +281,16 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         panel_tudo.add(checkBox_administrador);
         checkBox_administrador.setBounds(310, 220, 110, 23);
 
-        button_salvar.setBackground(new java.awt.Color(11, 26, 51));
-        button_salvar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        button_salvar.setForeground(new java.awt.Color(255, 255, 255));
-        button_salvar.setText("Adicionar");
-        button_salvar.setBorder(null);
-        button_salvar.setBorderPainted(false);
-        button_salvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button_salvar.setFocusPainted(false);
-        panel_tudo.add(button_salvar);
-        button_salvar.setBounds(525, 220, 100, 30);
+        button_adicionar.setBackground(new java.awt.Color(11, 26, 51));
+        button_adicionar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        button_adicionar.setForeground(new java.awt.Color(255, 255, 255));
+        button_adicionar.setText("Adicionar");
+        button_adicionar.setBorder(null);
+        button_adicionar.setBorderPainted(false);
+        button_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_adicionar.setFocusPainted(false);
+        panel_tudo.add(button_adicionar);
+        button_adicionar.setBounds(525, 220, 100, 30);
 
         button_salvar1.setBackground(new java.awt.Color(250, 65, 65));
         button_salvar1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -363,9 +363,9 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_adicionar;
     private javax.swing.JButton button_fechar;
     private javax.swing.JButton button_minimizar;
-    private javax.swing.JButton button_salvar;
     private javax.swing.JButton button_salvar1;
     private javax.swing.JCheckBox checkBox_administrador;
     private javax.swing.JLabel label_login;

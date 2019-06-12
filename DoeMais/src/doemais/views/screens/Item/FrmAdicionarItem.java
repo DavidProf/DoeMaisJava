@@ -28,7 +28,11 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
         label_login = new javax.swing.JLabel();
         button_minimizar = new javax.swing.JButton();
         button_fechar = new javax.swing.JButton();
+        textField_tipo = new javax.swing.JTextField();
         textField_nome = new javax.swing.JTextField();
+        textField_tipoDeMedida = new javax.swing.JTextField();
+        button_cancelar = new javax.swing.JButton();
+        button_adicionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DoeMais - Item");
@@ -91,6 +95,15 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
         panel_tudo.add(panel_titleBar);
         panel_titleBar.setBounds(0, 0, 400, 40);
 
+        textField_tipo.setBackground(new java.awt.Color(219, 243, 255));
+        textField_tipo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        textField_tipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textField_tipo.setUI(new doemais.views.UI.JTextFieldHintUI("Tipo", new java.awt.Color(166,166,166)));
+        textField_tipo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_tipo.setSelectionColor(new java.awt.Color(77, 141, 239));
+        panel_tudo.add(textField_tipo);
+        textField_tipo.setBounds(20, 70, 360, 30);
+
         textField_nome.setBackground(new java.awt.Color(219, 243, 255));
         textField_nome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         textField_nome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -98,7 +111,38 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
         textField_nome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_nome.setSelectionColor(new java.awt.Color(77, 141, 239));
         panel_tudo.add(textField_nome);
-        textField_nome.setBounds(120, 70, 135, 30);
+        textField_nome.setBounds(20, 130, 360, 30);
+
+        textField_tipoDeMedida.setBackground(new java.awt.Color(219, 243, 255));
+        textField_tipoDeMedida.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        textField_tipoDeMedida.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textField_tipoDeMedida.setUI(new doemais.views.UI.JTextFieldHintUI("Tipo de medida", new java.awt.Color(166,166,166)));
+        textField_tipoDeMedida.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_tipoDeMedida.setSelectionColor(new java.awt.Color(77, 141, 239));
+        panel_tudo.add(textField_tipoDeMedida);
+        textField_tipoDeMedida.setBounds(20, 190, 360, 30);
+
+        button_cancelar.setBackground(new java.awt.Color(250, 65, 65));
+        button_cancelar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        button_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        button_cancelar.setText("Cancelar");
+        button_cancelar.setBorder(null);
+        button_cancelar.setBorderPainted(false);
+        button_cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_cancelar.setFocusPainted(false);
+        panel_tudo.add(button_cancelar);
+        button_cancelar.setBounds(20, 250, 100, 30);
+
+        button_adicionar.setBackground(new java.awt.Color(11, 26, 51));
+        button_adicionar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        button_adicionar.setForeground(new java.awt.Color(255, 255, 255));
+        button_adicionar.setText("Adicionar");
+        button_adicionar.setBorder(null);
+        button_adicionar.setBorderPainted(false);
+        button_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_adicionar.setFocusPainted(false);
+        panel_tudo.add(button_adicionar);
+        button_adicionar.setBounds(280, 250, 100, 30);
 
         getContentPane().add(panel_tudo, "card2");
 
@@ -127,7 +171,7 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -152,12 +196,16 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_adicionar;
+    private javax.swing.JButton button_cancelar;
     private javax.swing.JButton button_fechar;
     private javax.swing.JButton button_minimizar;
     private javax.swing.JLabel label_login;
     private javax.swing.JPanel panel_titleBar;
     private javax.swing.JPanel panel_tudo;
     private javax.swing.JTextField textField_nome;
+    private javax.swing.JTextField textField_tipo;
+    private javax.swing.JTextField textField_tipoDeMedida;
     // End of variables declaration//GEN-END:variables
 
     private Point point = new Point();
