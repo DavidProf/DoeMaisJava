@@ -179,7 +179,7 @@ public class FrmMenu extends javax.swing.JFrame {
         panel_itens.setLayout(null);
 
         scrollPane_Itens.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPane_Itens.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Itens", 0, 0, new java.awt.Font("Arial", 0, 14))); // NOI18N
+        scrollPane_Itens.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Itens", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
 
         listItens.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         listItens.setToolTipText("Clique duas vezes sobre um item para ativar ou desativar");
@@ -211,6 +211,7 @@ public class FrmMenu extends javax.swing.JFrame {
         panel_itens.add(button_AdicionarItem);
         button_AdicionarItem.setBounds(0, 380, 320, 30);
 
+        textField_BuscarItem.setBackground(new java.awt.Color(219, 243, 255));
         textField_BuscarItem.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         textField_BuscarItem.setToolTipText("Preencha este campo com o nome do Item");
         textField_BuscarItem.setUI(new doemais.views.UI.JTextFieldHintUI("Buscar...", new java.awt.Color(166,166,166)));
@@ -239,7 +240,7 @@ public class FrmMenu extends javax.swing.JFrame {
         panel_funcionarios.setLayout(null);
 
         scrollPane_funcionarios.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPane_funcionarios.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funcionários", 0, 0, new java.awt.Font("Arial", 0, 14))); // NOI18N
+        scrollPane_funcionarios.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funcionários", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
         scrollPane_funcionarios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         listFuncionarios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -274,6 +275,7 @@ public class FrmMenu extends javax.swing.JFrame {
         panel_funcionarios.add(button_AdicionarFuncionario);
         button_AdicionarFuncionario.setBounds(0, 380, 320, 30);
 
+        textField_BuscarFuncionario.setBackground(new java.awt.Color(219, 243, 255));
         textField_BuscarFuncionario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         textField_BuscarFuncionario.setToolTipText("Preencha este campo com o nome ou CPF do funcionário.");
         textField_BuscarFuncionario.setUI(new doemais.views.UI.JTextFieldHintUI("Buscar... (CPF ou Nome)", new java.awt.Color(166,166,166)));
@@ -305,7 +307,7 @@ public class FrmMenu extends javax.swing.JFrame {
         panel_instituicoes.setLayout(null);
 
         scrollPane_Instituicoes.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPane_Instituicoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Instituições", 0, 0, new java.awt.Font("Arial", 0, 14))); // NOI18N
+        scrollPane_Instituicoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Instituições", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
         scrollPane_Instituicoes.setToolTipText("");
 
         list.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N

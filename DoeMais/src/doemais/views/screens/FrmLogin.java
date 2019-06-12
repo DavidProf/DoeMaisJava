@@ -153,13 +153,14 @@ public class FrmLogin extends javax.swing.JFrame {
         textField_user.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         textField_user.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(68, 68, 68), 2, true));
         textField_user.setCaretColor(new java.awt.Color(255, 255, 255));
+        textField_user.setSelectionColor(new java.awt.Color(77, 141, 239));
         panel_tudo.add(textField_user);
         textField_user.setBounds(315, 180, 245, 35);
 
         passwordField_senha.setBackground(new java.awt.Color(219, 243, 255));
         passwordField_senha.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         passwordField_senha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(68, 68, 68), 2, true));
-        passwordField_senha.setCaretColor(new java.awt.Color(255, 255, 255));
+        passwordField_senha.setSelectionColor(new java.awt.Color(77, 141, 239));
         panel_tudo.add(passwordField_senha);
         passwordField_senha.setBounds(315, 230, 245, 35);
 

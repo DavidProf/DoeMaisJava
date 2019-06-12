@@ -24,7 +24,7 @@ public class Acessa {
 
         try {
 
-            con = DriverManager.getConnection("jdbc:jtds:sqlserver://127.0.0.1:1433/DoeMais", "sa", "12345");
+            con = DriverManager.getConnection("jdbc:jtds:sqlserver://127.0.0.1:1433/DoeMais", "sa", "etesp");
             
             stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);//NUNCA ESQUECER DE COLOCAR ISSO
             

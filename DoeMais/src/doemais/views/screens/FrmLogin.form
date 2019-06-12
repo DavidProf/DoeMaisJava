@@ -252,6 +252,9 @@
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ef" green="8d" red="4d" type="rgb"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="textField_user.setUI(new doemais.views.UI.JTextFieldHintUI(&quot;Usu&#xe1;rio&quot;, new java.awt.Color(166,166,166)));"/>
@@ -277,8 +280,8 @@
                 </LineBorder>
               </Border>
             </Property>
-            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ef" green="8d" red="4d" type="rgb"/>
             </Property>
           </Properties>
           <AuxValues>
