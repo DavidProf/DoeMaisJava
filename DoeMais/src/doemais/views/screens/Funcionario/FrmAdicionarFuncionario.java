@@ -82,7 +82,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         label_login.setFocusable(false);
         label_login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panel_titleBar.add(label_login);
-        label_login.setBounds(0, 0, 180, 40);
+        label_login.setBounds(0, 0, 200, 40);
 
         button_minimizar.setBackground(new java.awt.Color(255, 255, 255));
         button_minimizar.setFont(new java.awt.Font("Arial", 0, 8)); // NOI18N
@@ -105,7 +105,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         button_fechar.setFocusable(false);
         button_fechar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         button_fechar.setRequestFocusEnabled(false);
-        button_fechar.addActionListener((e)-> {this.show(false);});
+        button_fechar.addActionListener((e)-> {doemais.views.screens.FrmMenu.habilitarFuncionario();this.dispose();});
         panel_titleBar.add(button_fechar);
         button_fechar.setBounds(590, 0, 40, 40);
 
@@ -113,7 +113,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         panel_titleBar.setBounds(0, 0, 630, 40);
 
         panel_dadosbasicos.setBackground(new java.awt.Color(255, 255, 255));
-        panel_dadosbasicos.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Dados Básicos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        panel_dadosbasicos.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Dados Básicos", 2, 0, new java.awt.Font("Arial", 0, 12))); // NOI18N
         panel_dadosbasicos.setLayout(null);
 
         textField_cpf.setBackground(new java.awt.Color(219, 243, 255));
@@ -147,7 +147,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         panel_dadosbasicos.setBounds(10, 50, 435, 55);
 
         panel_dataNascimento.setBackground(new java.awt.Color(255, 255, 255));
-        panel_dataNascimento.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Nascimento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        panel_dataNascimento.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Nascimento", 2, 0, new java.awt.Font("Arial", 0, 12))); // NOI18N
         panel_dataNascimento.setLayout(null);
 
         textField_dataDia.setBackground(new java.awt.Color(219, 243, 255));
@@ -181,7 +181,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         panel_dataNascimento.setBounds(455, 50, 170, 55);
 
         panel_endereco.setBackground(new java.awt.Color(255, 255, 255));
-        panel_endereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Endereço", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        panel_endereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Endereço", 2, 0, new java.awt.Font("Arial", 0, 12))); // NOI18N
         panel_endereco.setLayout(null);
 
         textField_cep.setBackground(new java.awt.Color(219, 243, 255));
@@ -251,7 +251,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         panel_endereco.setBounds(10, 110, 615, 90);
 
         panel_telefones.setBackground(new java.awt.Color(255, 255, 255));
-        panel_telefones.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Telefones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        panel_telefones.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Telefones", 2, 0, new java.awt.Font("Arial", 0, 12))); // NOI18N
         panel_telefones.setLayout(null);
 
         textField_telefoneA.setBackground(new java.awt.Color(219, 243, 255));
@@ -284,7 +284,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         button_salvar.setBackground(new java.awt.Color(11, 26, 51));
         button_salvar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         button_salvar.setForeground(new java.awt.Color(255, 255, 255));
-        button_salvar.setText("Salvar");
+        button_salvar.setText("Adicionar");
         button_salvar.setBorder(null);
         button_salvar.setBorderPainted(false);
         button_salvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

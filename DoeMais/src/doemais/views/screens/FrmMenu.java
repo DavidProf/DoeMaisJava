@@ -4,7 +4,6 @@ import doemais.BD.Acessa;
 import doemais.views.screens.Funcionario.FrmAdicionarFuncionario;
 import doemais.views.screens.Funcionario.FrmEditarFuncionario;
 import doemais.views.screens.Item.FrmAdicionarItem;
-import doemais.views.screens.Item.FrmEditarItem;
 import java.awt.Point;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -135,7 +134,7 @@ public class FrmMenu extends javax.swing.JFrame {
         button_addItens.setForeground(new java.awt.Color(255, 255, 255));
         button_addItens.setText("Itens");
         button_addItens.setBorder(null);
-        button_addItens.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_addItens.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_addItens.setFocusPainted(false);
         button_addItens.addActionListener((e) -> {card.show(panel_lateralDireitoCards, "itens");});
         panel_lateralMenu.add(button_addItens);
@@ -146,7 +145,7 @@ public class FrmMenu extends javax.swing.JFrame {
         button_funcionarios.setForeground(new java.awt.Color(255, 255, 255));
         button_funcionarios.setText("Funcionários");
         button_funcionarios.setBorder(null);
-        button_funcionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_funcionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_funcionarios.setFocusPainted(false);
         button_funcionarios.addActionListener((e)->{card.show(panel_lateralDireitoCards, "func");});
         panel_lateralMenu.add(button_funcionarios);
@@ -157,7 +156,7 @@ public class FrmMenu extends javax.swing.JFrame {
         button_instituicoes.setForeground(new java.awt.Color(255, 255, 255));
         button_instituicoes.setText("Instituições");
         button_instituicoes.setBorder(null);
-        button_instituicoes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_instituicoes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_instituicoes.setFocusPainted(false);
         button_instituicoes.addActionListener((e)->{card.show(panel_lateralDireitoCards, "insti");});
         panel_lateralMenu.add(button_instituicoes);
@@ -179,7 +178,7 @@ public class FrmMenu extends javax.swing.JFrame {
         panel_itens.setLayout(null);
 
         scrollPane_Itens.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPane_Itens.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Itens", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
+        scrollPane_Itens.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Itens", 0, 0, new java.awt.Font("Arial", 0, 14))); // NOI18N
 
         listItens.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         listItens.setToolTipText("Clique duas vezes sobre um item para ativar ou desativar");
@@ -200,7 +199,7 @@ public class FrmMenu extends javax.swing.JFrame {
         button_AdicionarItem.setText("Adicionar Item");
         button_AdicionarItem.setBorder(null);
         button_AdicionarItem.setBorderPainted(false);
-        button_AdicionarItem.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_AdicionarItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_AdicionarItem.setFocusPainted(false);
         button_AdicionarItem.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         button_AdicionarItem.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +224,7 @@ public class FrmMenu extends javax.swing.JFrame {
         button_buscarItem.setForeground(new java.awt.Color(255, 255, 255));
         button_buscarItem.setText("Buscar");
         button_buscarItem.setBorder(null);
-        button_buscarItem.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_buscarItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_buscarItem.setFocusPainted(false);
         button_buscarItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,7 +239,7 @@ public class FrmMenu extends javax.swing.JFrame {
         panel_funcionarios.setLayout(null);
 
         scrollPane_funcionarios.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPane_funcionarios.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funcionários", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
+        scrollPane_funcionarios.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Funcionários", 0, 0, new java.awt.Font("Arial", 0, 14))); // NOI18N
         scrollPane_funcionarios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         listFuncionarios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -264,7 +263,7 @@ public class FrmMenu extends javax.swing.JFrame {
         button_AdicionarFuncionario.setToolTipText("");
         button_AdicionarFuncionario.setBorder(null);
         button_AdicionarFuncionario.setBorderPainted(false);
-        button_AdicionarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_AdicionarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_AdicionarFuncionario.setFocusPainted(false);
         button_AdicionarFuncionario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         button_AdicionarFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -290,7 +289,7 @@ public class FrmMenu extends javax.swing.JFrame {
         button_buscar.setText("Buscar");
         button_buscar.setBorder(null);
         button_buscar.setBorderPainted(false);
-        button_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_buscar.setFocusPainted(false);
         button_buscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         button_buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -307,7 +306,7 @@ public class FrmMenu extends javax.swing.JFrame {
         panel_instituicoes.setLayout(null);
 
         scrollPane_Instituicoes.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPane_Instituicoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Instituições", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
+        scrollPane_Instituicoes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Instituições", 0, 0, new java.awt.Font("Arial", 0, 14))); // NOI18N
         scrollPane_Instituicoes.setToolTipText("");
 
         list.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -397,9 +396,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private void listFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listFuncionariosMouseClicked
         // double click - abrir janela
         if (evt.getClickCount() == 2) {
-            if(listFuncionarios.isSelectionEmpty()){
-                
-            }else{
+            if (listFuncionarios.isSelectionEmpty()) {
+
+            } else {
                 updateFuncionario("");
             }
         }
@@ -465,8 +464,8 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton button_AdicionarFuncionario;
-    private javax.swing.JButton button_AdicionarItem;
+    public static javax.swing.JButton button_AdicionarFuncionario;
+    private static javax.swing.JButton button_AdicionarItem;
     private javax.swing.JButton button_addItens;
     private javax.swing.JButton button_buscar;
     private javax.swing.JButton button_buscarItem;
@@ -478,8 +477,8 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel label_icon;
     private javax.swing.JLabel label_login;
     private javax.swing.JList<String> list;
-    private javax.swing.JList<String> listFuncionarios;
-    private javax.swing.JList<String> listItens;
+    private static javax.swing.JList<String> listFuncionarios;
+    private static javax.swing.JList<String> listItens;
     private javax.swing.JPanel panel_funcionarios;
     private javax.swing.JPanel panel_fundoLateral;
     private javax.swing.JPanel panel_instituicoes;
@@ -702,27 +701,39 @@ public class FrmMenu extends javax.swing.JFrame {
         }
     }
 //Em implementação
-    private void updateFuncionario(String cpf){
+
+    private void updateFuncionario(String cpf) {
         //CODE HERE
         button_AdicionarFuncionario.setEnabled(false);
         listFuncionarios.setEnabled(false);
         new FrmEditarFuncionario().setVisible(true);
         JOptionPane.showMessageDialog(null, "Área em construção");
     }
-    
-    private void addItem(){
+
+    private void addItem() {
         //CODE HERE
         button_AdicionarItem.setEnabled(false);
         listItens.setEnabled(false);
         new FrmAdicionarItem().setVisible(true);
         JOptionPane.showMessageDialog(null, "Área em construção");
     }
-    
-    private void addFunc(){
+
+    private void addFunc() {
         //CODE HERE
         button_AdicionarFuncionario.setEnabled(false);
         listFuncionarios.setEnabled(false);
         new FrmAdicionarFuncionario().setVisible(true);
         JOptionPane.showMessageDialog(null, "Área em construção");
+    }
+
+    //Gerência de menus e telas por parte de telas externas ao menu
+    public static void habilitarItem() {
+        button_AdicionarItem.setEnabled(true);
+        listItens.setEnabled(true);
+    }
+
+     public static void habilitarFuncionario() {
+        button_AdicionarFuncionario.setEnabled(true);
+        listFuncionarios.setEnabled(true);
     }
 }

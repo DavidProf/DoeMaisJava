@@ -1,5 +1,7 @@
 package doemais.views.screens.Item;
 
+import java.awt.Point;
+
 /**
  * @author DoeMais
  */
@@ -22,28 +24,97 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_tudo = new javax.swing.JPanel();
+        panel_titleBar = new javax.swing.JPanel();
+        label_login = new javax.swing.JLabel();
+        button_minimizar = new javax.swing.JButton();
+        button_fechar = new javax.swing.JButton();
+        textField_nome = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DoeMais - Item");
         setUndecorated(true);
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout panel_tudoLayout = new javax.swing.GroupLayout(panel_tudo);
-        panel_tudo.setLayout(panel_tudoLayout);
-        panel_tudoLayout.setHorizontalGroup(
-            panel_tudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        panel_tudoLayout.setVerticalGroup(
-            panel_tudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        panel_tudo.setBackground(new java.awt.Color(255, 255, 255));
+        panel_tudo.setLayout(null);
+
+        panel_titleBar.setBackground(new java.awt.Color(0, 29, 73));
+        panel_titleBar.setFocusable(false);
+        panel_titleBar.setPreferredSize(new java.awt.Dimension(40, 450));
+        panel_titleBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panel_titleBarMouseDragged(evt);
+            }
+        });
+        panel_titleBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panel_titleBarMousePressed(evt);
+            }
+        });
+        panel_titleBar.setLayout(null);
+
+        label_login.setFont(new java.awt.Font("David", 0, 18)); // NOI18N
+        label_login.setForeground(new java.awt.Color(255, 255, 255));
+        label_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_login.setText("DoeMais - Menu");
+        label_login.setToolTipText("");
+        label_login.setFocusable(false);
+        label_login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panel_titleBar.add(label_login);
+        label_login.setBounds(0, 0, 150, 40);
+
+        button_minimizar.setBackground(new java.awt.Color(0, 29, 73));
+        button_minimizar.setFont(new java.awt.Font("Arial", 0, 8)); // NOI18N
+        button_minimizar.setForeground(new java.awt.Color(255, 255, 255));
+        button_minimizar.setText("-");
+        button_minimizar.setBorder(null);
+        button_minimizar.setFocusable(false);
+        button_minimizar.setOpaque(false);
+        button_minimizar.setRequestFocusEnabled(false);
+        button_minimizar.addActionListener((e)-> {setExtendedState(ICONIFIED);});
+        panel_titleBar.add(button_minimizar);
+        button_minimizar.setBounds(320, 0, 40, 40);
+
+        button_fechar.setBackground(new java.awt.Color(250, 65, 65));
+        button_fechar.setFont(new java.awt.Font("Arial", 0, 8)); // NOI18N
+        button_fechar.setForeground(new java.awt.Color(255, 255, 255));
+        button_fechar.setText("X");
+        button_fechar.setBorder(null);
+        button_fechar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button_fechar.setFocusable(false);
+        button_fechar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        button_fechar.setRequestFocusEnabled(false);
+        button_fechar.addActionListener((e)-> {doemais.views.screens.FrmMenu.habilitarItem();this.dispose();});
+        panel_titleBar.add(button_fechar);
+        button_fechar.setBounds(360, 0, 40, 40);
+
+        panel_tudo.add(panel_titleBar);
+        panel_titleBar.setBounds(0, 0, 400, 40);
+
+        textField_nome.setBackground(new java.awt.Color(219, 243, 255));
+        textField_nome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        textField_nome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textField_nome.setUI(new doemais.views.UI.JTextFieldHintUI("Nome", new java.awt.Color(166,166,166)));
+        textField_nome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_nome.setSelectionColor(new java.awt.Color(77, 141, 239));
+        panel_tudo.add(textField_nome);
+        textField_nome.setBounds(120, 70, 135, 30);
 
         getContentPane().add(panel_tudo, "card2");
 
         setSize(new java.awt.Dimension(400, 300));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void panel_titleBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_titleBarMouseDragged
+        Point p = this.getLocation();
+        this.setLocation(p.x + evt.getX() - point.x, p.y + evt.getY() - point.y);
+    }//GEN-LAST:event_panel_titleBarMouseDragged
+
+    private void panel_titleBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_titleBarMousePressed
+        point.x = evt.getX();
+        point.y = evt.getY();
+    }//GEN-LAST:event_panel_titleBarMousePressed
 
     /**
      * @param args the command line arguments
@@ -81,6 +152,13 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_fechar;
+    private javax.swing.JButton button_minimizar;
+    private javax.swing.JLabel label_login;
+    private javax.swing.JPanel panel_titleBar;
     private javax.swing.JPanel panel_tudo;
+    private javax.swing.JTextField textField_nome;
     // End of variables declaration//GEN-END:variables
+
+    private Point point = new Point();
 }
