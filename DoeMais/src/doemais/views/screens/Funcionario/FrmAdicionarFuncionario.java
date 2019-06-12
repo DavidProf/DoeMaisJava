@@ -43,10 +43,10 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_complemento = new javax.swing.JTextField();
         textField_bairro = new javax.swing.JTextField();
         textField_cidade = new javax.swing.JTextField();
-        textField_cidade1 = new javax.swing.JTextField();
+        textField_UF = new javax.swing.JTextField();
         panel_telefones = new javax.swing.JPanel();
         textField_telefoneA = new javax.swing.JTextField();
-        textField_nome1 = new javax.swing.JTextField();
+        textField_telefoneB = new javax.swing.JTextField();
         checkBox_administrador = new javax.swing.JCheckBox();
         button_adicionar = new javax.swing.JButton();
         button_salvar1 = new javax.swing.JButton();
@@ -122,6 +122,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_cpf.setUI(new doemais.views.UI.JTextFieldHintUI("CPF - Somente nºs", new java.awt.Color(166,166,166)));
         textField_cpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_cpf.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_cpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_cpfKeyTyped(evt);
+            }
+        });
         panel_dadosbasicos.add(textField_cpf);
         textField_cpf.setBounds(10, 15, 135, 30);
 
@@ -131,6 +136,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_nome.setUI(new doemais.views.UI.JTextFieldHintUI("Nome", new java.awt.Color(166,166,166)));
         textField_nome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_nome.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_nome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_nomeKeyTyped(evt);
+            }
+        });
         panel_dadosbasicos.add(textField_nome);
         textField_nome.setBounds(150, 15, 135, 30);
 
@@ -140,6 +150,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_sobrenome.setUI(new doemais.views.UI.JTextFieldHintUI("Sobrenome", new java.awt.Color(166,166,166)));
         textField_sobrenome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_sobrenome.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_sobrenome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_sobrenomeKeyTyped(evt);
+            }
+        });
         panel_dadosbasicos.add(textField_sobrenome);
         textField_sobrenome.setBounds(290, 15, 135, 30);
 
@@ -156,6 +171,14 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_dataDia.setUI(new doemais.views.UI.JTextFieldHintUI("Dia", new java.awt.Color(166,166,166)));
         textField_dataDia.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_dataDia.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_dataDia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                textField_dataDiaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_dataDiaKeyTyped(evt);
+            }
+        });
         panel_dataNascimento.add(textField_dataDia);
         textField_dataDia.setBounds(10, 15, 35, 30);
 
@@ -165,6 +188,14 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_dataMes.setUI(new doemais.views.UI.JTextFieldHintUI("Mês", new java.awt.Color(166,166,166)));
         textField_dataMes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_dataMes.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_dataMes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                textField_dataMesKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_dataMesKeyTyped(evt);
+            }
+        });
         panel_dataNascimento.add(textField_dataMes);
         textField_dataMes.setBounds(50, 15, 35, 30);
 
@@ -174,6 +205,14 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_dataAno.setUI(new doemais.views.UI.JTextFieldHintUI("Ano", new java.awt.Color(166,166,166)));
         textField_dataAno.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_dataAno.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_dataAno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                textField_dataAnoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_dataAnoKeyTyped(evt);
+            }
+        });
         panel_dataNascimento.add(textField_dataAno);
         textField_dataAno.setBounds(90, 15, 70, 30);
 
@@ -190,6 +229,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_cep.setUI(new doemais.views.UI.JTextFieldHintUI("CEP - Somente nºs", new java.awt.Color(166,166,166)));
         textField_cep.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_cep.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_cep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_cepKeyTyped(evt);
+            }
+        });
         panel_endereco.add(textField_cep);
         textField_cep.setBounds(10, 15, 135, 30);
 
@@ -199,6 +243,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_logradouro.setUI(new doemais.views.UI.JTextFieldHintUI("Logradouro", new java.awt.Color(166,166,166)));
         textField_logradouro.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_logradouro.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_logradouro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_logradouroKeyTyped(evt);
+            }
+        });
         panel_endereco.add(textField_logradouro);
         textField_logradouro.setBounds(150, 15, 235, 30);
 
@@ -208,6 +257,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_numero.setUI(new doemais.views.UI.JTextFieldHintUI("Nº", new java.awt.Color(166,166,166)));
         textField_numero.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_numero.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_numero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_numeroKeyTyped(evt);
+            }
+        });
         panel_endereco.add(textField_numero);
         textField_numero.setBounds(390, 15, 100, 30);
 
@@ -217,6 +271,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_complemento.setUI(new doemais.views.UI.JTextFieldHintUI("Complemento", new java.awt.Color(166,166,166)));
         textField_complemento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_complemento.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_complemento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_complementoKeyTyped(evt);
+            }
+        });
         panel_endereco.add(textField_complemento);
         textField_complemento.setBounds(495, 15, 110, 30);
 
@@ -226,6 +285,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_bairro.setUI(new doemais.views.UI.JTextFieldHintUI("Bairro", new java.awt.Color(166,166,166)));
         textField_bairro.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_bairro.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_bairro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_bairroKeyTyped(evt);
+            }
+        });
         panel_endereco.add(textField_bairro);
         textField_bairro.setBounds(10, 50, 230, 30);
 
@@ -235,17 +299,27 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_cidade.setUI(new doemais.views.UI.JTextFieldHintUI("Cidade", new java.awt.Color(166,166,166)));
         textField_cidade.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_cidade.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_cidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_cidadeKeyTyped(evt);
+            }
+        });
         panel_endereco.add(textField_cidade);
         textField_cidade.setBounds(245, 50, 230, 30);
 
-        textField_cidade1.setBackground(new java.awt.Color(219, 243, 255));
-        textField_cidade1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        textField_cidade1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textField_cidade1.setUI(new doemais.views.UI.JTextFieldHintUI("UF", new java.awt.Color(166,166,166)));
-        textField_cidade1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        textField_cidade1.setSelectionColor(new java.awt.Color(77, 141, 239));
-        panel_endereco.add(textField_cidade1);
-        textField_cidade1.setBounds(500, 50, 100, 30);
+        textField_UF.setBackground(new java.awt.Color(219, 243, 255));
+        textField_UF.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        textField_UF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textField_UF.setUI(new doemais.views.UI.JTextFieldHintUI("UF", new java.awt.Color(166,166,166)));
+        textField_UF.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_UF.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_UF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_UFKeyTyped(evt);
+            }
+        });
+        panel_endereco.add(textField_UF);
+        textField_UF.setBounds(500, 50, 100, 30);
 
         panel_tudo.add(panel_endereco);
         panel_endereco.setBounds(10, 110, 615, 90);
@@ -260,17 +334,27 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         textField_telefoneA.setUI(new doemais.views.UI.JTextFieldHintUI("Telefone A", new java.awt.Color(166,166,166)));
         textField_telefoneA.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         textField_telefoneA.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_telefoneA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_telefoneAKeyTyped(evt);
+            }
+        });
         panel_telefones.add(textField_telefoneA);
         textField_telefoneA.setBounds(10, 15, 135, 30);
 
-        textField_nome1.setBackground(new java.awt.Color(219, 243, 255));
-        textField_nome1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        textField_nome1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textField_nome1.setUI(new doemais.views.UI.JTextFieldHintUI("Telefone B", new java.awt.Color(166,166,166)));
-        textField_nome1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        textField_nome1.setSelectionColor(new java.awt.Color(77, 141, 239));
-        panel_telefones.add(textField_nome1);
-        textField_nome1.setBounds(150, 15, 135, 30);
+        textField_telefoneB.setBackground(new java.awt.Color(219, 243, 255));
+        textField_telefoneB.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        textField_telefoneB.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textField_telefoneB.setUI(new doemais.views.UI.JTextFieldHintUI("Telefone B", new java.awt.Color(166,166,166)));
+        textField_telefoneB.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_telefoneB.setSelectionColor(new java.awt.Color(77, 141, 239));
+        textField_telefoneB.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textField_telefoneBKeyTyped(evt);
+            }
+        });
+        panel_telefones.add(textField_telefoneB);
+        textField_telefoneB.setBounds(150, 15, 135, 30);
 
         panel_tudo.add(panel_telefones);
         panel_telefones.setBounds(10, 205, 295, 55);
@@ -318,6 +402,189 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         point.x = evt.getX();
         point.y = evt.getY();
     }//GEN-LAST:event_panel_titleBarMousePressed
+
+    private void textField_cpfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_cpfKeyTyped
+        javax.swing.JTextField jtf = textField_cpf;
+        int n = 11;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_cpfKeyTyped
+
+    private void textField_nomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_nomeKeyTyped
+        javax.swing.JTextField jtf = textField_nome;
+        int n = 18;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_nomeKeyTyped
+
+    private void textField_sobrenomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_sobrenomeKeyTyped
+        javax.swing.JTextField jtf = textField_sobrenome;
+        int n = 40;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_sobrenomeKeyTyped
+
+    private void textField_dataDiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataDiaKeyTyped
+        javax.swing.JTextField jtf = textField_dataDia;
+        int n = 2;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_dataDiaKeyTyped
+
+    private void textField_dataMesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataMesKeyTyped
+        javax.swing.JTextField jtf = textField_dataMes;
+        int n = 2;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_dataMesKeyTyped
+
+    private void textField_dataAnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataAnoKeyTyped
+        javax.swing.JTextField jtf = textField_dataAno;
+        int n = 4;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_dataAnoKeyTyped
+
+    private void textField_cepKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_cepKeyTyped
+        javax.swing.JTextField jtf = textField_cep;
+        int n = 8;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_cepKeyTyped
+
+    private void textField_logradouroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_logradouroKeyTyped
+        javax.swing.JTextField jtf = textField_logradouro;
+        int n = 50;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_logradouroKeyTyped
+
+    private void textField_numeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_numeroKeyTyped
+        javax.swing.JTextField jtf = textField_numero;
+        int n = 5;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_numeroKeyTyped
+
+    private void textField_complementoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_complementoKeyTyped
+        javax.swing.JTextField jtf = textField_complemento;
+        int n = 25;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_complementoKeyTyped
+
+    private void textField_bairroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_bairroKeyTyped
+        javax.swing.JTextField jtf = textField_bairro;
+        int n = 30;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_bairroKeyTyped
+
+    private void textField_cidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_cidadeKeyTyped
+        javax.swing.JTextField jtf = textField_cidade;
+        int n = 25;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_cidadeKeyTyped
+
+    private void textField_UFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_UFKeyTyped
+        javax.swing.JTextField jtf = textField_UF;
+        int n = 2;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_UFKeyTyped
+
+    private void textField_telefoneAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_telefoneAKeyTyped
+        javax.swing.JTextField jtf = textField_telefoneA;
+        int n = 11;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_telefoneAKeyTyped
+
+    private void textField_telefoneBKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_telefoneBKeyTyped
+        javax.swing.JTextField jtf = textField_telefoneB;
+        int n = 11;
+        n--;
+        if (jtf.getText().length() > n) {
+            evt.consume();
+        }
+        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_telefoneBKeyTyped
+
+    private void textField_dataDiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataDiaKeyReleased
+        if (!textField_dataDia.getText().equals("") && (Integer.parseInt(textField_dataDia.getText()) > 31 || Integer.parseInt(textField_dataDia.getText()) < 1)){
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            textField_dataDia.setText("");
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_dataDiaKeyReleased
+
+    private void textField_dataMesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataMesKeyReleased
+        if (!textField_dataMes.getText().equals("") && (Integer.parseInt(textField_dataMes.getText()) > 12 || Integer.parseInt(textField_dataMes.getText()) < 1)){
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            textField_dataMes.setText("");
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_dataMesKeyReleased
+
+    private void textField_dataAnoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataAnoKeyReleased
+        if (!textField_dataAno.getText().equals("") && textField_dataAno.getText().length() >= 4 &&  (Integer.parseInt(textField_dataAno.getText()) < 1800 || Integer.parseInt(textField_dataAno.getText()) > 3000)){
+            java.awt.Toolkit.getDefaultToolkit().beep();
+            textField_dataAno.setText("");
+            evt.consume();
+        }
+    }//GEN-LAST:event_textField_dataAnoKeyReleased
 
     /**
      * @param args the command line arguments
@@ -375,10 +642,10 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel panel_telefones;
     private javax.swing.JPanel panel_titleBar;
     private javax.swing.JPanel panel_tudo;
+    private javax.swing.JTextField textField_UF;
     private javax.swing.JTextField textField_bairro;
     private javax.swing.JTextField textField_cep;
     private javax.swing.JTextField textField_cidade;
-    private javax.swing.JTextField textField_cidade1;
     private javax.swing.JTextField textField_complemento;
     private javax.swing.JTextField textField_cpf;
     private javax.swing.JTextField textField_dataAno;
@@ -386,11 +653,12 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField textField_dataMes;
     private javax.swing.JTextField textField_logradouro;
     private javax.swing.JTextField textField_nome;
-    private javax.swing.JTextField textField_nome1;
     private javax.swing.JTextField textField_numero;
     private javax.swing.JTextField textField_sobrenome;
     private javax.swing.JTextField textField_telefoneA;
+    private javax.swing.JTextField textField_telefoneB;
     // End of variables declaration//GEN-END:variables
 
     private Point point = new Point();
+
 }
