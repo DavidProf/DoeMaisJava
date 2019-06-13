@@ -1,6 +1,8 @@
 package doemais.views.screens.Funcionario;
 
+import doemais.BD.Acessa;
 import java.awt.Point;
+import javax.swing.JOptionPane;
 
 /**
  * @author DoeMais
@@ -376,6 +378,11 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         button_salvar.setBorderPainted(false);
         button_salvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_salvar.setFocusPainted(false);
+        button_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_salvarActionPerformed(evt);
+            }
+        });
         panel_tudo1.add(button_salvar);
         button_salvar.setBounds(525, 220, 100, 30);
 
@@ -590,6 +597,84 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_textField_dataAnoKeyReleased
+
+    private void button_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salvarActionPerformed
+        doemais.BD.Acessa bd = new Acessa();
+        bd.entBanco();
+        //dados básicos
+        String cpf = textField_cpf.getText();
+        String nome = textField_nome.getText();
+        String sobrenome = textField_sobrenome.getText();
+        //ano-mes-dia
+        String ano = textField_dataAno.getText();
+        String mes = textField_dataMes.getText();
+        String dia = textField_dataDia.getText();
+        //endereço
+        String cep = textField_cep.getText();
+        String logradouro = textField_logradouro.getText();
+        String numero = textField_numero.getText();
+        String complemento = textField_complemento.getText();
+        String bairro = textField_bairro.getText();
+        String cidade = textField_cidade.getText();
+        String uf = textField_UF.getText();
+        //Telefones
+        String telefoneA = textField_telefoneA.getText();
+        String telefoneB = textField_telefoneB.getText();
+        //Validações dados
+        if (cpf.equals("") || cpf.length() < 11) {
+            JOptionPane.showMessageDialog(null, "CPF incorreto");
+            return;
+        }
+        if (nome.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo de nome vazio");
+            return;
+        }
+        if (sobrenome.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo de sobrenome vazio");
+            return;
+        }
+        //Validações nascimento
+        if (ano.equals("") || mes.equals("") || dia.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo data de nascimento vazio");
+            return;
+        }
+        //Validações endereco
+        if (cep.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo cep vazio");
+            return;
+        }
+        if (logradouro.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo logradouro vazio");
+            return;
+        }
+        if (numero.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo numero vazio");
+            return;
+        }
+        if (bairro.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo bairro vazio");
+            return;
+        }
+        if (cidade.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo cidade vazio");
+            return;
+        }
+        if (uf.equals("") || uf.length() < 2) {
+            JOptionPane.showMessageDialog(null, "Campo UF vazio ou incorreto");
+            return;
+        }
+        //Validações telefones
+        if (telefoneA.equals("") || telefoneB.equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha ao menos um dos telefones");
+            return;
+        } else {
+            if ((!(telefoneA.equals("")) && telefoneA.length() < 10) || (!(telefoneB.equals("")) && telefoneB.length() < 10)) {
+                JOptionPane.showMessageDialog(null, "Telefone de tamanho incorreta, insera com DDD");
+            return;
+            }
+        }
+        //code
+    }//GEN-LAST:event_button_salvarActionPerformed
 
     /**
      * @param args the command line arguments

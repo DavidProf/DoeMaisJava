@@ -1,6 +1,8 @@
 package doemais.views.screens.Funcionario;
 
+import doemais.BD.Acessa;
 import java.awt.Point;
+import javax.swing.JOptionPane;
 
 /**
  * @author DoeMais
@@ -373,6 +375,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         button_adicionar.setBorderPainted(false);
         button_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_adicionar.setFocusPainted(false);
+        button_adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_adicionarActionPerformed(evt);
+            }
+        });
         panel_tudo.add(button_adicionar);
         button_adicionar.setBounds(525, 220, 100, 30);
 
@@ -410,7 +417,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_cpfKeyTyped
@@ -440,7 +447,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_dataDiaKeyTyped
@@ -452,7 +459,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_dataMesKeyTyped
@@ -464,7 +471,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_dataAnoKeyTyped
@@ -476,7 +483,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_cepKeyTyped
@@ -497,7 +504,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_numeroKeyTyped
@@ -545,7 +552,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_telefoneAKeyTyped
@@ -557,13 +564,13 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_telefoneBKeyTyped
 
     private void textField_dataDiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataDiaKeyReleased
-        if (!textField_dataDia.getText().equals("") && (Integer.parseInt(textField_dataDia.getText()) > 31 || Integer.parseInt(textField_dataDia.getText()) < 1)){
+        if (!textField_dataDia.getText().equals("") && (Integer.parseInt(textField_dataDia.getText()) > 31 || Integer.parseInt(textField_dataDia.getText()) < 1)) {
             java.awt.Toolkit.getDefaultToolkit().beep();
             textField_dataDia.setText("");
             evt.consume();
@@ -571,7 +578,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_textField_dataDiaKeyReleased
 
     private void textField_dataMesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataMesKeyReleased
-        if (!textField_dataMes.getText().equals("") && (Integer.parseInt(textField_dataMes.getText()) > 12 || Integer.parseInt(textField_dataMes.getText()) < 1)){
+        if (!textField_dataMes.getText().equals("") && (Integer.parseInt(textField_dataMes.getText()) > 12 || Integer.parseInt(textField_dataMes.getText()) < 1)) {
             java.awt.Toolkit.getDefaultToolkit().beep();
             textField_dataMes.setText("");
             evt.consume();
@@ -579,12 +586,91 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_textField_dataMesKeyReleased
 
     private void textField_dataAnoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataAnoKeyReleased
-        if (!textField_dataAno.getText().equals("") && textField_dataAno.getText().length() >= 4 &&  (Integer.parseInt(textField_dataAno.getText()) < 1800 || Integer.parseInt(textField_dataAno.getText()) > 3000)){
+        if (!textField_dataAno.getText().equals("") && textField_dataAno.getText().length() >= 4 && (Integer.parseInt(textField_dataAno.getText()) < 1800 || Integer.parseInt(textField_dataAno.getText()) > 3000)) {
             java.awt.Toolkit.getDefaultToolkit().beep();
             textField_dataAno.setText("");
             evt.consume();
         }
     }//GEN-LAST:event_textField_dataAnoKeyReleased
+
+    private void button_adicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_adicionarActionPerformed
+        doemais.BD.Acessa bd = new Acessa();
+        bd.entBanco();
+        //dados básicos
+        String cpf = textField_cpf.getText();
+        String nome = textField_nome.getText();
+        String sobrenome = textField_sobrenome.getText();
+        //ano-mes-dia
+        String ano = textField_dataAno.getText();
+        String mes = textField_dataMes.getText();
+        String dia = textField_dataDia.getText();
+        //endereço
+        String cep = textField_cep.getText();
+        String logradouro = textField_logradouro.getText();
+        String numero = textField_numero.getText();
+        String complemento = textField_complemento.getText();
+        String bairro = textField_bairro.getText();
+        String cidade = textField_cidade.getText();
+        String uf = textField_UF.getText();
+        //Telefones
+        String telefoneA = textField_telefoneA.getText();
+        String telefoneB = textField_telefoneB.getText();
+        //Validações dados
+        if (cpf.equals("") || cpf.length() < 11) {
+            JOptionPane.showMessageDialog(null, "CPF incorreto");
+            return;
+        }
+        if (nome.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo de nome vazio");
+            return;
+        }
+        if (sobrenome.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo de sobrenome vazio");
+            return;
+        }
+        //Validações nascimento
+        if (ano.equals("") || mes.equals("") || dia.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo data de nascimento vazio");
+            return;
+        }
+        //Validações endereco
+        if (cep.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo cep vazio");
+            return;
+        }
+        if (logradouro.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo logradouro vazio");
+            return;
+        }
+        if (numero.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo numero vazio");
+            return;
+        }
+        if (bairro.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo bairro vazio");
+            return;
+        }
+        if (cidade.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo cidade vazio");
+            return;
+        }
+        if (uf.equals("") || uf.length() < 2) {
+            JOptionPane.showMessageDialog(null, "Campo UF vazio ou incorreto");
+            return;
+        }
+        //Validações telefones
+        if (telefoneA.equals("") || telefoneB.equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha ao menos um dos telefones");
+            return;
+        } else {
+            if ((!(telefoneA.equals("")) && telefoneA.length() < 10) || (!(telefoneB.equals("")) && telefoneB.length() < 10)) {
+                JOptionPane.showMessageDialog(null, "Telefone de tamanho incorreta, insera com DDD");
+            return;
+            }
+        }
+        //code
+        
+    }//GEN-LAST:event_button_adicionarActionPerformed
 
     /**
      * @param args the command line arguments
