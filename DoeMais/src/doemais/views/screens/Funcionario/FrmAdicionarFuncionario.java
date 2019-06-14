@@ -2,6 +2,7 @@ package doemais.views.screens.Funcionario;
 
 import doemais.BD.Acessa;
 import java.awt.Point;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -595,7 +596,6 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
 
     private void button_adicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_adicionarActionPerformed
         doemais.BD.Acessa bd = new Acessa();
-        bd.entBanco();
         //dados básicos
         String cpf = textField_cpf.getText();
         String nome = textField_nome.getText();
@@ -665,11 +665,51 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         } else {
             if ((!(telefoneA.equals("")) && telefoneA.length() < 10) || (!(telefoneB.equals("")) && telefoneB.length() < 10)) {
                 JOptionPane.showMessageDialog(null, "Telefone de tamanho incorreta, insera com DDD");
-            return;
+                return;
             }
         }
         //code
-        
+        String senha = JOptionPane.showInputDialog("Digite sua senha");
+        bd.entBanco();
+        String comando = "INSERT INTO [dbo].[tblFuncionarioDoeMais] "
+                + "([CPF] "
+                + ",[Senha] "
+                + ",[Nome] "
+                + ",[Sobrenome] "
+                + ",[DataNascimento] "
+                + ",[TelefoneA] "
+                + ",[TelefoneB] "
+                + ",[Adm] "
+                + ",[Ativo] "
+                + ",[Logradouro] "
+                + ",[Numero] "
+                + ",[Complemento] "
+                + ",[CEP] "
+                + ",[UF] "
+                + ",[Cidade] "
+                + ",[Bairro]) "
+                + "VALUES "
+                + "('" + cpf + "' "
+                + ",'" + senha + "' "
+                + ",'" + nome + "' "
+                + ",'" + sobrenome + "' "
+                + ",'" + ano + "-" + mes + "-" + dia + "' "
+                + ",'" + telefoneA + "' "
+                + ",'" + telefoneB + "' "
+                + "," + (checkBox_administrador.isSelected() ? "1" : "0") + " "
+                + ",1 "
+                + ",'" + logradouro + "' "
+                + ",'" + numero + "' "
+                + ",'" + complemento + "' "
+                + ",'" + cep.substring(0, 5) + "-" + cep.substring(5, 8) + "' "
+                + ",'" + uf + "' "
+                + ",'" + cidade + "' "
+                + ",'" + bairro + "')";
+        try {
+            bd.stmt.executeUpdate(comando);
+        } catch (SQLException sqle) {
+
+        }
     }//GEN-LAST:event_button_adicionarActionPerformed
 
     /**

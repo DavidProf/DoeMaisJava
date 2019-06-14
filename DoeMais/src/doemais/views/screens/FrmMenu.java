@@ -723,7 +723,6 @@ public class FrmMenu extends javax.swing.JFrame {
         button_AdicionarFuncionario.setEnabled(false);
         listFuncionarios.setEnabled(false);
         new FrmAdicionarFuncionario().setVisible(true);
-        JOptionPane.showMessageDialog(null, "Área em construção");
     }
 
     //Gerência de menus e telas por parte de telas externas ao menu
