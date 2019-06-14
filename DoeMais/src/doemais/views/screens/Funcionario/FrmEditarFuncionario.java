@@ -382,7 +382,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         checkBox_administrador.setText("administrador");
         checkBox_administrador.setOpaque(false);
         panel_tudo1.add(checkBox_administrador);
-        checkBox_administrador.setBounds(310, 210, 110, 23);
+        checkBox_administrador.setBounds(310, 210, 110, 24);
 
         button_salvar.setBackground(new java.awt.Color(11, 26, 51));
         button_salvar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -390,7 +390,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         button_salvar.setText("Salvar");
         button_salvar.setBorder(null);
         button_salvar.setBorderPainted(false);
-        button_salvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_salvar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_salvar.setFocusPainted(false);
         button_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -406,8 +406,13 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         button_salvar1.setText("Cancelar");
         button_salvar1.setBorder(null);
         button_salvar1.setBorderPainted(false);
-        button_salvar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_salvar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_salvar1.setFocusPainted(false);
+        button_salvar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_salvar1ActionPerformed(evt);
+            }
+        });
         panel_tudo1.add(button_salvar1);
         button_salvar1.setBounds(420, 220, 100, 30);
 
@@ -415,7 +420,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         checkBox_ativo.setText("Ativo");
         checkBox_ativo.setOpaque(false);
         panel_tudo1.add(checkBox_ativo);
-        checkBox_ativo.setBounds(310, 230, 110, 23);
+        checkBox_ativo.setBounds(310, 230, 110, 24);
 
         panel_tudo.add(panel_tudo1, "card2");
 
@@ -684,7 +689,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
             return;
         }
         //Validações telefones
-        if (telefoneA.equals("") || telefoneB.equals("")) {
+        if ((telefoneA.equals("") && telefoneB.equals(""))) {
             JOptionPane.showMessageDialog(null, "Preencha ao menos um dos telefones");
             return;
         } else {
@@ -694,12 +699,40 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
             }
         }
         //code
+        String comando = "UPDATE [dbo].[tblFuncionarioDoeMais] "
+                + "SET [CPF] = '" + cpf + "' "
+                + ",[Nome] = '" + nome + "' "
+                + ",[Sobrenome] = '" + sobrenome + "' "
+                + ",[DataNascimento] = '" + ano + "-" + mes + "-" + dia + "' "
+                + ",[TelefoneA] = '" + telefoneA + "' "
+                + ",[TelefoneB] = '" + telefoneB + "' "
+                + ",[Adm] = " + (checkBox_administrador.isSelected() ? 1 : 0) + " "
+                + ",[Ativo] = " + (checkBox_ativo.isSelected() ? 1 : 0) + " "
+                + ",[Logradouro] = '" + numero + "' "
+                + ",[Numero] = '" + numero + "' "
+                + ",[Complemento] = '" + complemento + "' "
+                + ",[CEP] = '" + cep.replace("-", "") + "' "
+                + ",[UF] = '" + uf + "' "
+                + ",[Cidade] = '" + cidade + "' "
+                + ",[Bairro] = '" + bairro + "' "
+                + "WHERE CPF LIKE '" + cpf + "'";
+        try {
+            bd.stmt.executeUpdate(comando);
+            button_fechar.doClick();
+        } catch (SQLException sqle) {
+            JOptionPane.showMessageDialog(null, "Erro ao realizar cadastro.");
+        }
     }//GEN-LAST:event_button_salvarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         pegaDados();
 
     }//GEN-LAST:event_formWindowOpened
+
+    private void button_salvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salvar1ActionPerformed
+        doemais.views.screens.FrmMenu.habilitarFuncionario();
+        this.dispose();
+    }//GEN-LAST:event_button_salvar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -794,20 +827,20 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         try {
             bd.RS = bd.stmt.executeQuery(comando);
             while (bd.RS.next()) {
-                textField_cpf.setText(bd.RS.getString(1));
+                textField_cpf.setText(bd.RS.getString(1).replace(".", "").replace("-", ""));
                 textField_nome.setText(bd.RS.getString(2));
                 textField_sobrenome.setText(bd.RS.getString(3));
                 textField_dataAno.setText(bd.RS.getString(4).substring(0, 4));
                 textField_dataMes.setText(bd.RS.getString(4).substring(5, 7));
                 textField_dataDia.setText(bd.RS.getString(4).substring(8, 10));
-                textField_telefoneA.setText(bd.RS.getString(5));
-                textField_telefoneB.setText(bd.RS.getString(6));
+                textField_telefoneA.setText(bd.RS.getString(5).replace("-", "").replace("(", "").replace(")", ""));
+                textField_telefoneB.setText(bd.RS.getString(6).replace("-", "").replace("(", "").replace(")", ""));
                 checkBox_administrador.setSelected((bd.RS.getString(7).equals("1") ? true : false));
                 checkBox_ativo.setSelected((bd.RS.getString(8).equals("1") ? true : false));
                 textField_logradouro.setText(bd.RS.getString(9));
                 textField_numero.setText(bd.RS.getString(10));
                 textField_complemento.setText(bd.RS.getString(11));
-                textField_cep.setText(bd.RS.getString(12));
+                textField_cep.setText(bd.RS.getString(12).replace("-", ""));
                 textField_UF.setText(bd.RS.getString(13));
                 textField_cidade.setText(bd.RS.getString(14));
                 textField_bairro.setText(bd.RS.getString(15));

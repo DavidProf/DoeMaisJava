@@ -546,7 +546,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         javax.swing.JTextField jtf = textField_UF;
         int n = 2;
         n--;
-        if (jtf.getText().length() > n) {
+        if (jtf.getText().length() > n || evt.getKeyChar() == ' ') {
             evt.consume();
         }
     }//GEN-LAST:event_textField_UFKeyTyped
@@ -603,7 +603,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         doemais.BD.Acessa bd = new Acessa();
         //dados básicos
         String cpf = textField_cpf.getText();
-        String nome = textField_nome.getText();
+        String nome = textField_nome.getText().trim();
         String sobrenome = textField_sobrenome.getText();
         //ano-mes-dia
         String ano = textField_dataAno.getText();
@@ -664,7 +664,7 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
             return;
         }
         //Validações telefones
-        if (telefoneA.equals("") || telefoneB.equals("")) {
+        if ((telefoneA.equals("") && telefoneB.equals(""))) {
             JOptionPane.showMessageDialog(null, "Preencha ao menos um dos telefones");
             return;
         } else {

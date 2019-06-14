@@ -5,6 +5,7 @@ import doemais.views.screens.Funcionario.FrmAdicionarFuncionario;
 import doemais.views.screens.Funcionario.FrmEditarFuncionario;
 import doemais.views.screens.Item.FrmAdicionarItem;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,8 @@ public class FrmMenu extends javax.swing.JFrame {
     public FrmMenu() {
         initComponents();
 
+        setIcon();
+        
         card = (java.awt.CardLayout) panel_lateralDireitoCards.getLayout();
     }
 
@@ -707,7 +710,6 @@ public class FrmMenu extends javax.swing.JFrame {
         button_AdicionarFuncionario.setEnabled(false);
         listFuncionarios.setEnabled(false);
         new FrmEditarFuncionario(listFuncionarios.getSelectedValue().split(";")[0].trim()).setVisible(true);
-        JOptionPane.showMessageDialog(null, "Área em construção");
     }
 
     private void addItem() {
@@ -734,5 +736,9 @@ public class FrmMenu extends javax.swing.JFrame {
      public static void habilitarFuncionario() {
         button_AdicionarFuncionario.setEnabled(true);
         listFuncionarios.setEnabled(true);
+    }
+
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../imgs/DoeMais.png")));
     }
 }
