@@ -392,6 +392,11 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         button_salvar1.setBorderPainted(false);
         button_salvar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_salvar1.setFocusPainted(false);
+        button_salvar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_salvar1ActionPerformed(evt);
+            }
+        });
         panel_tudo.add(button_salvar1);
         button_salvar1.setBounds(420, 220, 100, 30);
 
@@ -708,9 +713,17 @@ public class FrmAdicionarFuncionario extends javax.swing.JFrame {
         try {
             bd.stmt.executeUpdate(comando);
         } catch (SQLException sqle) {
-
+            JOptionPane.showMessageDialog(null, "Erro ao realizar cadastro.");
         }
+        JOptionPane.showMessageDialog(null, "Cadastro feito com sucesso");
+        doemais.views.screens.FrmMenu.habilitarFuncionario();
+        this.dispose();
     }//GEN-LAST:event_button_adicionarActionPerformed
+
+    private void button_salvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_salvar1ActionPerformed
+        doemais.views.screens.FrmMenu.habilitarFuncionario();
+        this.dispose();
+    }//GEN-LAST:event_button_salvar1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -2,6 +2,7 @@ package doemais.views.screens.Funcionario;
 
 import doemais.BD.Acessa;
 import java.awt.Point;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,8 +13,9 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
     /**
      * Creates new form FrmEditarFuncionario
      */
-    public FrmEditarFuncionario() {
+    public FrmEditarFuncionario(String cpf) {
         initComponents();
+        this.cpf = cpf;
     }
 
     /**
@@ -53,10 +55,16 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         checkBox_administrador = new javax.swing.JCheckBox();
         button_salvar = new javax.swing.JButton();
         button_salvar1 = new javax.swing.JButton();
+        checkBox_ativo = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DoeMais - Funcionario");
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.CardLayout());
 
         panel_tudo.setLayout(new java.awt.CardLayout());
@@ -126,6 +134,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         textField_cpf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textField_cpf.setUI(new doemais.views.UI.JTextFieldHintUI("CPF - Somente nºs", new java.awt.Color(166,166,166)));
         textField_cpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_cpf.setEnabled(false);
         textField_cpf.setSelectionColor(new java.awt.Color(77, 141, 239));
         textField_cpf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -140,6 +149,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         textField_nome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textField_nome.setUI(new doemais.views.UI.JTextFieldHintUI("Nome", new java.awt.Color(166,166,166)));
         textField_nome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_nome.setEnabled(false);
         textField_nome.setSelectionColor(new java.awt.Color(77, 141, 239));
         textField_nome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -154,6 +164,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         textField_sobrenome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textField_sobrenome.setUI(new doemais.views.UI.JTextFieldHintUI("Sobrenome", new java.awt.Color(166,166,166)));
         textField_sobrenome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_sobrenome.setEnabled(false);
         textField_sobrenome.setSelectionColor(new java.awt.Color(77, 141, 239));
         textField_sobrenome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -175,6 +186,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         textField_dataDia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textField_dataDia.setUI(new doemais.views.UI.JTextFieldHintUI("Dia", new java.awt.Color(166,166,166)));
         textField_dataDia.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_dataDia.setEnabled(false);
         textField_dataDia.setSelectionColor(new java.awt.Color(77, 141, 239));
         textField_dataDia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -192,6 +204,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         textField_dataMes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textField_dataMes.setUI(new doemais.views.UI.JTextFieldHintUI("Mês", new java.awt.Color(166,166,166)));
         textField_dataMes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_dataMes.setEnabled(false);
         textField_dataMes.setSelectionColor(new java.awt.Color(77, 141, 239));
         textField_dataMes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -209,6 +222,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         textField_dataAno.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textField_dataAno.setUI(new doemais.views.UI.JTextFieldHintUI("Ano", new java.awt.Color(166,166,166)));
         textField_dataAno.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        textField_dataAno.setEnabled(false);
         textField_dataAno.setSelectionColor(new java.awt.Color(77, 141, 239));
         textField_dataAno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -368,7 +382,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         checkBox_administrador.setText("administrador");
         checkBox_administrador.setOpaque(false);
         panel_tudo1.add(checkBox_administrador);
-        checkBox_administrador.setBounds(310, 220, 110, 23);
+        checkBox_administrador.setBounds(310, 210, 110, 23);
 
         button_salvar.setBackground(new java.awt.Color(11, 26, 51));
         button_salvar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -397,6 +411,12 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         panel_tudo1.add(button_salvar1);
         button_salvar1.setBounds(420, 220, 100, 30);
 
+        checkBox_ativo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        checkBox_ativo.setText("Ativo");
+        checkBox_ativo.setOpaque(false);
+        panel_tudo1.add(checkBox_ativo);
+        checkBox_ativo.setBounds(310, 230, 110, 23);
+
         panel_tudo.add(panel_tudo1, "card2");
 
         getContentPane().add(panel_tudo, "card2");
@@ -422,7 +442,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_cpfKeyTyped
@@ -452,7 +472,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_dataDiaKeyTyped
@@ -464,7 +484,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_dataMesKeyTyped
@@ -476,7 +496,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_dataAnoKeyTyped
@@ -488,7 +508,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_cepKeyTyped
@@ -509,7 +529,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_numeroKeyTyped
@@ -557,7 +577,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_telefoneAKeyTyped
@@ -569,13 +589,13 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         if (jtf.getText().length() > n) {
             evt.consume();
         }
-        if(!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')){
+        if (!(evt.getKeyChar() <= '9' && evt.getKeyChar() >= '0')) {
             evt.consume();
         }
     }//GEN-LAST:event_textField_telefoneBKeyTyped
 
     private void textField_dataDiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataDiaKeyReleased
-        if (!textField_dataDia.getText().equals("") && (Integer.parseInt(textField_dataDia.getText()) > 31 || Integer.parseInt(textField_dataDia.getText()) < 1)){
+        if (!textField_dataDia.getText().equals("") && (Integer.parseInt(textField_dataDia.getText()) > 31 || Integer.parseInt(textField_dataDia.getText()) < 1)) {
             java.awt.Toolkit.getDefaultToolkit().beep();
             textField_dataDia.setText("");
             evt.consume();
@@ -583,7 +603,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_textField_dataDiaKeyReleased
 
     private void textField_dataMesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataMesKeyReleased
-        if (!textField_dataMes.getText().equals("") && (Integer.parseInt(textField_dataMes.getText()) > 12 || Integer.parseInt(textField_dataMes.getText()) < 1)){
+        if (!textField_dataMes.getText().equals("") && (Integer.parseInt(textField_dataMes.getText()) > 12 || Integer.parseInt(textField_dataMes.getText()) < 1)) {
             java.awt.Toolkit.getDefaultToolkit().beep();
             textField_dataMes.setText("");
             evt.consume();
@@ -591,7 +611,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_textField_dataMesKeyReleased
 
     private void textField_dataAnoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField_dataAnoKeyReleased
-        if (!textField_dataAno.getText().equals("") && textField_dataAno.getText().length() >= 4 && (Integer.parseInt(textField_dataAno.getText()) > 3000 || Integer.parseInt(textField_dataAno.getText()) < 1800)){
+        if (!textField_dataAno.getText().equals("") && textField_dataAno.getText().length() >= 4 && (Integer.parseInt(textField_dataAno.getText()) > 3000 || Integer.parseInt(textField_dataAno.getText()) < 1800)) {
             java.awt.Toolkit.getDefaultToolkit().beep();
             textField_dataAno.setText("");
             evt.consume();
@@ -670,11 +690,16 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         } else {
             if ((!(telefoneA.equals("")) && telefoneA.length() < 10) || (!(telefoneB.equals("")) && telefoneB.length() < 10)) {
                 JOptionPane.showMessageDialog(null, "Telefone de tamanho incorreta, insera com DDD");
-            return;
+                return;
             }
         }
         //code
     }//GEN-LAST:event_button_salvarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        pegaDados();
+
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -706,7 +731,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmEditarFuncionario().setVisible(true);
+                new FrmEditarFuncionario(cpf).setVisible(true);
             }
         });
     }
@@ -717,6 +742,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton button_salvar;
     private javax.swing.JButton button_salvar1;
     private javax.swing.JCheckBox checkBox_administrador;
+    private javax.swing.JCheckBox checkBox_ativo;
     private javax.swing.JLabel label_login;
     private javax.swing.JPanel panel_dadosbasicos;
     private javax.swing.JPanel panel_dataNascimento;
@@ -742,5 +768,52 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField textField_telefoneB;
     // End of variables declaration//GEN-END:variables
 
-    Point point = new Point();
+    private Point point = new Point();
+    private doemais.BD.Acessa bd = new doemais.BD.Acessa();
+    //
+    private static String cpf = new String();
+
+    private void pegaDados() {
+        bd.entBanco();
+        String comando = "SELECT [CPF] "
+                + ",[Nome] "
+                + ",[Sobrenome] "
+                + ",[DataNascimento] "
+                + ",[TelefoneA] "
+                + ",[TelefoneB] "
+                + ",[Adm] "
+                + ",[Ativo] "
+                + ",[Logradouro] "
+                + ",[Numero] "
+                + ",[Complemento] "
+                + ",[CEP] "
+                + ",[UF] "
+                + ",[Cidade] "
+                + ",[Bairro] "
+                + "FROM [dbo].[tblFuncionarioDoeMais] WHERE [CPF] LIKE '" + cpf + "'";
+        try {
+            bd.RS = bd.stmt.executeQuery(comando);
+            while (bd.RS.next()) {
+                textField_cpf.setText(bd.RS.getString(1));
+                textField_nome.setText(bd.RS.getString(2));
+                textField_sobrenome.setText(bd.RS.getString(3));
+                textField_dataAno.setText(bd.RS.getString(4).substring(0, 4));
+                textField_dataMes.setText(bd.RS.getString(4).substring(5, 7));
+                textField_dataDia.setText(bd.RS.getString(4).substring(8, 10));
+                textField_telefoneA.setText(bd.RS.getString(5));
+                textField_telefoneB.setText(bd.RS.getString(6));
+                checkBox_administrador.setSelected((bd.RS.getString(7).equals("1") ? true : false));
+                checkBox_ativo.setSelected((bd.RS.getString(8).equals("1") ? true : false));
+                textField_logradouro.setText(bd.RS.getString(9));
+                textField_numero.setText(bd.RS.getString(10));
+                textField_complemento.setText(bd.RS.getString(11));
+                textField_cep.setText(bd.RS.getString(12));
+                textField_UF.setText(bd.RS.getString(13));
+                textField_cidade.setText(bd.RS.getString(14));
+                textField_bairro.setText(bd.RS.getString(15));
+            }
+        } catch (SQLException sql) {
+
+        }
+    }
 }
