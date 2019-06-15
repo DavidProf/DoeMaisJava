@@ -1,6 +1,9 @@
 package doemais.views.screens.Item;
 
+import doemais.BD.Acessa;
 import java.awt.Point;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  * @author DoeMais
@@ -128,8 +131,13 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
         button_cancelar.setText("Cancelar");
         button_cancelar.setBorder(null);
         button_cancelar.setBorderPainted(false);
-        button_cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_cancelar.setFocusPainted(false);
+        button_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cancelarActionPerformed(evt);
+            }
+        });
         panel_tudo.add(button_cancelar);
         button_cancelar.setBounds(20, 250, 100, 30);
 
@@ -139,8 +147,13 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
         button_adicionar.setText("Adicionar");
         button_adicionar.setBorder(null);
         button_adicionar.setBorderPainted(false);
-        button_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button_adicionar.setFocusPainted(false);
+        button_adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_adicionarActionPerformed(evt);
+            }
+        });
         panel_tudo.add(button_adicionar);
         button_adicionar.setBounds(280, 250, 100, 30);
 
@@ -159,6 +172,50 @@ public class FrmAdicionarItem extends javax.swing.JFrame {
         point.x = evt.getX();
         point.y = evt.getY();
     }//GEN-LAST:event_panel_titleBarMousePressed
+
+    private void button_adicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_adicionarActionPerformed
+        // Adicionar Item
+        if (textField_nome.getText().trim().isEmpty()
+                || textField_tipo.getText().trim().isEmpty()
+                || textField_tipoDeMedida.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "É necessário preencher todos os campos", "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else {
+            //get data
+            String nome = textField_nome.getText().replace("  ", " ");
+            String tipo = textField_tipo.getText().replace("  ", " ");
+            String tipoMedida = textField_tipoDeMedida.getText().replace("  ", " ");
+            //set data in database
+            String comando = "INSERT INTO [dbo].[tblItemPreCadastro] "
+                    + "([ItemNome] "
+                    + ",[ItemTipo] "
+                    + ",[ItemTipoMedida] "
+                    + ",[Ativo]) "
+                    + "VALUES "
+                    + "('" + (nome.length() <= 30 ? nome : nome.substring(0, 30)) + "' "
+                    + ",'" + (tipo.length() <= 20 ? tipo : tipo.substring(0, 20)) + "' "
+                    + ",'" + (tipoMedida.length() <= 25 ? tipoMedida : tipoMedida.substring(0, 25)) + "' "
+                    + ",1)";
+            Acessa bd = new Acessa();
+            bd.entBanco();
+            try {
+                int sucesso = bd.stmt.executeUpdate(comando);
+                if (sucesso > 0) {
+                    JOptionPane.showMessageDialog(null, "Item cadastrado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar item", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (SQLException sqle) {
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar item", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            button_cancelar.doClick();
+        }
+    }//GEN-LAST:event_button_adicionarActionPerformed
+
+    private void button_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelarActionPerformed
+        //
+        doemais.views.screens.FrmMenu.habilitarItem();
+        this.dispose();
+    }//GEN-LAST:event_button_cancelarActionPerformed
 
     /**
      * @param args the command line arguments

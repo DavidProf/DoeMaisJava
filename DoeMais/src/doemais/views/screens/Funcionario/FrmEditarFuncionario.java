@@ -712,16 +712,21 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
                 + ",[Numero] = '" + numero + "' "
                 + ",[Complemento] = '" + complemento + "' "
                 + ",[CEP] = '" + cep.replace("-", "") + "' "
-                + ",[UF] = '" + uf + "' "
+                + ",[UF] = '" + uf.toUpperCase() + "' "
                 + ",[Cidade] = '" + cidade + "' "
                 + ",[Bairro] = '" + bairro + "' "
                 + "WHERE CPF LIKE '" + cpf + "'";
         try {
-            bd.stmt.executeUpdate(comando);
-            button_fechar.doClick();
+            int sucesso = bd.stmt.executeUpdate(comando);
+            if (sucesso > 0) {
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao realizar cadastro.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         } catch (SQLException sqle) {
-            JOptionPane.showMessageDialog(null, "Erro ao realizar cadastro.");
+            JOptionPane.showMessageDialog(null, "Erro ao realizar cadastro.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
+        button_fechar.doClick();
     }//GEN-LAST:event_button_salvarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -840,7 +845,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
                 textField_logradouro.setText(bd.RS.getString(9));
                 textField_numero.setText(bd.RS.getString(10));
                 textField_complemento.setText(bd.RS.getString(11));
-                textField_cep.setText(bd.RS.getString(12).replace("-", ""));
+                textField_cep.setText(bd.RS.getString(12).replace("-", "").trim());
                 textField_UF.setText(bd.RS.getString(13));
                 textField_cidade.setText(bd.RS.getString(14));
                 textField_bairro.setText(bd.RS.getString(15));
@@ -849,4 +854,5 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
 
         }
     }
+
 }
