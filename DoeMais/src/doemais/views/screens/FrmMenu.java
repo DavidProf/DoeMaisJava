@@ -717,7 +717,6 @@ public class FrmMenu extends javax.swing.JFrame {
         button_AdicionarItem.setEnabled(false);
         listItens.setEnabled(false);
         new FrmAdicionarItem().setVisible(true);
-        JOptionPane.showMessageDialog(null, "Área em construção");
     }
 
     private void addFunc() {
