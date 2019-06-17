@@ -832,7 +832,7 @@ public class FrmEditarFuncionario extends javax.swing.JFrame {
         try {
             bd.RS = bd.stmt.executeQuery(comando);
             while (bd.RS.next()) {
-                textField_cpf.setText(bd.RS.getString(1).replace(".", "").replace("-", ""));
+                textField_cpf.setText(bd.RS.getString(1));
                 textField_nome.setText(bd.RS.getString(2));
                 textField_sobrenome.setText(bd.RS.getString(3));
                 textField_dataAno.setText(bd.RS.getString(4).substring(0, 4));
