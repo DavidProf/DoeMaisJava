@@ -703,7 +703,6 @@ public class FrmMenu extends javax.swing.JFrame {
             setListInstituicoes(1);
         }
     }
-//Em implementação
 
     private void updateFuncionario(String cpf) {
         //CODE HERE
